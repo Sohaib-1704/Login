@@ -1,14 +1,24 @@
 package com.cp.onlinewallet.dto;
 
 public class SignUp {
-	int userId;
-	String userName;
-	String password;
-	String confirmPassword;
-	String phoneNumber;
-	String email;
+	private int userId;
+	private String userName;
+	private String password;
+	private String confirmPassword;
+	private String phoneNumber;
+	private String email;
 	
-	
+	public SignUp(){
+		
+	}
+	public SignUp(int userId,String userName,String password,String confirmPassword,String phoneNumber,String email) {
+		this.userId=userId;
+		this.userName=userName;
+		this.password=password;
+		this.confirmPassword=confirmPassword;
+		this.phoneNumber=phoneNumber;
+		this.email=email;
+	}
 	public int getUserId() {
 		return userId;
 	}
