@@ -1,5 +1,5 @@
 package com.cp.onlinewallet.util;
 
-public class LoginRepository {
-	
+public class SignUpRepository {
+
 }
