@@ -1,4 +1,4 @@
-package com.cp.onlinewallet.service;
+/*package com.cp.onlinewallet.service;
 
 import java.util.List;
 
@@ -14,3 +14,4 @@ public class LoginService {
 		return loginDao.getLoginList();
 	}
 }
+*/

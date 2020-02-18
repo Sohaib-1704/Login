@@ -8,11 +8,8 @@ public class SignUp {
 	private String phoneNumber;
 	private String email;
 	
-	public SignUp(){
-		
-	}
-	public SignUp(int userId,String userName,String password,String confirmPassword,String phoneNumber,String email) {
-		this.userId=userId;
+	public SignUp(String userName,String password,String confirmPassword,String phoneNumber, String email) {
+		//this.userId=userId;
 		this.userName=userName;
 		this.password=password;
 		this.confirmPassword=confirmPassword;
@@ -55,6 +52,10 @@ public class SignUp {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
+	@Override
+	public String toString() {
+		return "userId: "+userId+"userName: "+userName+"password: "+password+"confirmPassword: "+confirmPassword+"email: "+email+"phoneNumber: "+phoneNumber;
+	}
+	
 	
 }

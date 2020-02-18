@@ -1,19 +1,20 @@
 package com.cp.onlinewallet.dao;
 
-import java.util.ArrayList;
-import java.util.List;
-import com.cp.onlinewallet.dto.Login;
+import com.cp.onlinewallet.dto.SignUp;
+import com.cp.onlinewallet.util.SignUpRepository;
 public class LoginDao {
-	List<Login> loginList = new ArrayList<Login>();
-
-	public List<Login> getLoginList() {
-		return loginList;
-	}
-
-	public void setLoginList(List<Login> loginList) {
-		this.loginList = loginList;
-	}
-	public boolean addLogin(Login login) {
-		 return loginList.add(login);
-	}
+/*
+	@SuppressWarnings("static-access")
+	void printData()	{
+		SignUpRepository obj=new SignUpRepository();
+		
+		for(SignUp i : obj.signUpList) {
+			System.out.println(i.getUserId());
+			System.out.println(i.getUserName());
+			System.out.println(i.getPassword());
+			System.out.println(i.getConfirmPassword());
+			System.out.println(i.getPhoneNumber());
+			System.out.println(i.getEmail());
+		}
+	}*/
 }
