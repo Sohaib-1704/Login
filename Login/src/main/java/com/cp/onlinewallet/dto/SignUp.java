@@ -1,7 +1,7 @@
 package com.cp.onlinewallet.dto;
 
 public class SignUp {
-	private int userId;
+//	private int userId;
 	private String userName;
 	private String password;
 	private String confirmPassword;
@@ -16,12 +16,12 @@ public class SignUp {
 		this.phoneNumber=phoneNumber;
 		this.email=email;
 	}
-	public int getUserId() {
-		return userId;
-	}
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
+//	public int getUserId() {
+//		return userId;
+//	}
+//	public void setUserId(int userId) {
+//		this.userId = userId;
+//	} 
 	public String getUserName() {
 		return userName;
 	}
@@ -52,10 +52,10 @@ public class SignUp {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	@Override
-	public String toString() {
-		return "userId: "+userId+"userName: "+userName+"password: "+password+"confirmPassword: "+confirmPassword+"email: "+email+"phoneNumber: "+phoneNumber;
-	}
+//	@Override
+//	public String toString() {
+//		return /*"userId: "+userId+*/"userName: "+userName+"password: "+password+"confirmPassword: "+confirmPassword+"email: "+email+"phoneNumber: "+phoneNumber;
+//	}
 	
 	
 }

@@ -1,68 +1,98 @@
 package com.cp.onlinewallet.ui;
 
-import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 import com.cp.onlinewallet.dto.SignUp;
-import com.cp.onlinewallet.exception.SignUpException;
+import com.cp.onlinewallet.exception.LoginException;
+import com.cp.onlinewallet.service.LoginService;
 import com.cp.onlinewallet.service.SignUpService;
 
 public class MainClass {
 
-	/*public static String main(String[] args) {
-		List<SignUpRepository> s = new ArrayList<SignUpRepository>(100);
-		List<SignUp> s1 = new ArrayList<SignUp>();
+	public static void main(String[] args) throws LoginException {
 		
-		System.out.println("\n1. Login \n2. SignUp");
-		Scanner sc = new Scanner(System.in);
-		Scanner sc2 = new Scanner(System.in);
-		int choice=  sc.nextInt();
-		switch(choice) {
-		case 1:
-			System.out.println("Enter UserName: ");
-			Scanner sc1 = new Scanner(System.in);
-			String user = sc1.nextLine();
-			System.out.println( user);
-			System.out.println("Enter Password: ");
-			String pass = sc1.nextLine();
-			System.out.println(pass);
-			
-			break;
-		case 2:
-			
-			System.out.println("Enter UserName: ");
-			String userName = sc2.nextLine();
-			System.out.println("Enter Password: ");
-			String password = sc2.nextLine();
-			System.out.println("ConfirmPassword: ");
-			String confirmPassword = sc2.nextLine();
-			if (password.equals(confirmPassword))
-				System.out.println("password doesn't match");
-			System.out.println("Enter Email: ");
-			String email=sc2.nextLine();
-			System.out.println("Enter PhoneNumber: ");
-			String phoneNumber=sc2.nextLine();
-			
-			//s.add(new SignUpRepository(userName,password,confirmPassword,email,phoneNumber));
+		List<SignUp> signUp = new ArrayList<SignUp>();
+		SignUpService signUpService = new SignUpService();
+		LoginService loginService = new LoginService(); 
+		Scanner scanner = new Scanner(System.in);
+		Scanner scanner1=new Scanner(System.in);
+		Scanner scanner2=new Scanner(System.in);
+		Scanner scanner3=  new Scanner(System.in);
+		Scanner scanner4= new Scanner(System.in);
+		System.out.println("Choose any one\n1. SignUp"); 
+		System.out.println("2. Login");
+		System.out.println("0. Exit");
+		int input=scanner.nextInt();
+		while(input!=0) {
+			if (input==1) {	
+				System.out.println("Enter UserName with first character as capital: ");
+				String userName = scanner2.nextLine();
+				System.out.println("Enter Password (containing atleast 1 uppercase character, lowercase characters, digits and special characters): ");
+				String password = scanner2.nextLine();
+				System.out.println("Confirm Password(Re-enter the password typed above): ");
+				String confirmPassword = scanner2.nextLine();
+				System.out.println("Enter Phone Number(Phone Number should be of 10 digits): ");
+				String phoneNumber=scanner2.nextLine();
+				System.out.println("Enter a valid Email with correct format: ");
+				String email=scanner2.nextLine();		
+				signUp.add(new SignUp(userName,password,confirmPassword,phoneNumber,email));
+				System.out.println(signUpService.signUpTest(userName, password, confirmPassword, phoneNumber, email));
+				System.out.println("Choose any one\n1. SignUp");
+				System.out.println("2. Login");
+				System.out.println("0. Exit");
+				input=scanner.nextInt();
+				
+			}
+			else if(input==2) {
+				System.out.println("username: ");
+				String uname= scanner1.nextLine();
+				System.out.println("password: ");
+				String pass= scanner1.nextLine();
+				System.out.println("Login condition: "+loginService.validateLogin(uname, pass));
+				if (loginService.validateLogin(uname, pass)==true) {
+					System.out.println("Welcome to stonkexchange..\nThe Future of Logins..");
+				}
+				else {
+					System.out.println("Forgot password??\nEnter 1");
+					int n = scanner3.nextInt();
+					if (n==1) {
+						System.out.println("What is your favourite sport?: ");
+						String answer="volleyball";
+						String question= scanner4.nextLine();
+						if(question.equals(answer)) {
+							System.out.println("Login condition: true\nWelcome...");
+						}
+						else{
+							System.out.println("Login condition: false\nExiting....");
+							System.exit(0);
+						}
+					}
+					else {
+						System.exit(0);
+					}
+				}
+				System.out.println("Choose any one\n1. SignUp");
+				System.out.println("2. Login");
+				System.out.println("0. Exit");  
+				input=scanner.nextInt();
+			}
+			else if (input==0) {
+				System.exit(0);
+			}
+			else {
+				System.out.println("We don't do that here: \nPress only the following: ");
+				System.out.println("1. SignUp");
+				System.out.println("2. Login");
+				System.out.println("0. Exit");
+				input=scanner.nextInt();
+			}
 		}
-*/
-	public Serializable testFun(String uName, String pass, String cpass, String pn, String em) {
-		String userName=uName, password=pass, phoneNumber= pn,confirmPassword=cpass, email=em;
-		//int uId = (Integer) userId;
-    	SignUpService signUpService=new SignUpService();
-    	
-    	
-    	SignUp signUp=new SignUp(userName, password, confirmPassword, phoneNumber, email );
-    	
-	try {
-		signUp=signUpService.registerUserService(signUp);
-		return (/*signUp.getUserId()+*/signUp.getUserName()+" "+signUp.getPassword()+" "+signUp.getConfirmPassword()
-		+" "+signUp.getPhoneNumber()+" "+signUp.getEmail());
-	}
-	catch(SignUpException e) {
-		System.out.println(e.getMessage());
-	}
-	return null;
+		scanner.close();
+		scanner1.close();
+		scanner2.close();
+		scanner3.close();
+		scanner4.close();
 	}
 }
-
-
